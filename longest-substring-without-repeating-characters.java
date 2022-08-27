@@ -1,21 +1,21 @@
 class Solution {
     public int lengthOfLongestSubstring(String s) {
+        if(s.length() == 1) return 1;
         int longest = 0;
-        String str = "";
         
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (str.indexOf(c) != -1) {
-                str = str.substring(str.indexOf(c) + 1);
-            }            
-            str += c;
-            longest = Math.max(longest, str.length());            
+        for(int l = 0, r = 1; r < s.length(); r++) {
+            int i = s.substring(l, r).indexOf(s.charAt(r));
+            if(i != -1) {
+                l = l + i + 1;
+            }
+            longest = Math.max(longest, r - l + 1);
         }
         
         return longest;
     }
 }
 
+
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
-// Runtime: 28 ms, faster than 21.40% of Java online submissions for Longest Substring Without Repeating Characters.
-// Memory Usage: 54.4 MB, less than 13.76% of Java online submissions for Longest Substring Without Repeating Characters.
+// Runtime: 9 ms, faster than 76.62% of Java online submissions for Longest Substring Without Repeating Characters.
+// Memory Usage: 50 MB, less than 18.84% of Java online submissions for Longest Substring Without Repeating Characters.
