@@ -8,12 +8,14 @@ class Solution {
             
             if(c == '(' || c == '{' || c == '[') q.push(c);
             else if(q.size() > 0) {
-                if(c == ')' && q.peek() == '(') q.pop();
-                else if(c == '}' && q.peek() == '{') q.pop();
-                else if(c == ']' && q.peek() == '[') q.pop();
-                else q.push(c);
+                char peek = q.peek();
+                
+                if(c == ')' && peek == '(') q.pop();
+                else if(c == '}' && peek == '{') q.pop();
+                else if(c == ']' && peek == '[') q.pop();
+                else return false;
             }
-            else q.push(c);
+            else return false;
         }
         
         return q.size() == 0 ? true : false ;
@@ -21,5 +23,5 @@ class Solution {
 }
 
 // https://leetcode.com/problems/valid-parentheses/submissions/
-// Runtime: 1 ms, faster than 99.63% of Java online submissions for Valid Parentheses.
-// Memory Usage: 40.3 MB, less than 94.15% of Java online submissions for Valid Parentheses.
+// Runtime: 1 ms, faster than 99.79% of Java online submissions for Valid Parentheses.
+// Memory Usage: 40.2 MB, less than 94.07% of Java online submissions for Valid Parentheses.
