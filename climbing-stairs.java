@@ -1,14 +1,19 @@
-// https://leetcode.com/problems/climbing-stairs/
-// 03/25/2022 14:41 Accepted 0 ms 41.7 MB java
 class Solution {
     public int climbStairs(int n) {
-        int[] vec = new int [n + 1];
-        vec[1] = vec[0] = 1 ;
+        if(n == 1) return 1;
+        
+        int val1 = 1, val2 = 2;
             
-        for(int i = 2; i <= n; i++){
-            vec[i] = vec[i - 1] + vec[i - 2];
+        for(int i = 3; i <= n; i++){
+            int temp = val1 + val2;
+            val1 = val2;
+            val2 = temp;
         }
         
-        return vec[n];
+        return val2;
     }
 }
+
+// https://leetcode.com/problems/climbing-stairs/
+// Runtime: 0 ms, faster than 100.00% of Java online submissions for Climbing Stairs.
+// Memory Usage: 40.9 MB, less than 37.22% of Java online submissions for Climbing Stairs.
