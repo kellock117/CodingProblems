@@ -24,5 +24,5 @@ class Solution {
 
 
 // https://leetcode.com/problems/group-anagrams/submissions/
-// Runtime: 12 ms, faster than 69.97% of Java online submissions for Group Anagrams.
-// Memory Usage: 55.4 MB, less than 77.57% of Java online submissions for Group Anagrams.
+// Runtime: 6 ms, faster than 99.39% of Java online submissions for Group Anagrams.
+// Memory Usage: 44.9 MB, less than 99.34% of Java online submissions for Group Anagrams.
